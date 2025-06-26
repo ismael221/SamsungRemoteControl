@@ -1,11 +1,8 @@
 package com.ismael.samsung.remote.control.viewmodel
 
 import android.app.Application
-import android.content.Context
 import android.util.Log
-import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.ViewModel
 import com.ismael.samsung.remote.control.network.SamsungWebSocketClient
 
 class RemoteControlViewModel(application: Application) : AndroidViewModel(application) {
@@ -19,6 +16,10 @@ class RemoteControlViewModel(application: Application) : AndroidViewModel(applic
 
     fun enviarComando(key: String) {
         client.sendKey(key)
+    }
+
+    fun abrirApp(key: String) {
+        client.launchApp(key)
     }
 
     override fun onCleared() {

@@ -403,7 +403,9 @@ fun RemoteControlApp(
                 horizontalAlignment = Alignment.Start,
             ) {
                 IconButton(
-                    onClick = {},
+                    onClick = {
+                        viewModel.abrirApp("11101200001")
+                    },
                     modifier = Modifier
                         .background(Color.DarkGray, ShapeDefaults.Medium)
                         .width(96.dp)
@@ -426,7 +428,9 @@ fun RemoteControlApp(
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 IconButton(
-                    onClick = {},
+                    onClick = {
+                        viewModel.abrirApp("3201512006785")
+                    },
                     modifier = Modifier
                         .background(Color.DarkGray, ShapeDefaults.Medium)
                         .width(96.dp)
@@ -450,7 +454,7 @@ fun RemoteControlApp(
                     .weight(1f)
             ) {
                 IconButton(
-                    onClick = {},
+                    onClick = {viewModel.abrirApp("3201808016597")},
                     modifier = Modifier
                         .background(Color.DarkGray, ShapeDefaults.Medium)
                         .width(96.dp)
@@ -504,16 +508,24 @@ fun RemoteControlApp(
                 modifier = Modifier
                     .padding(8.dp)
             ) {
+                var isPaused by remember { mutableStateOf(false) }
+
                 IconButton(
                     onClick = {
-                        viewModel.enviarComando("KEY_PLAY")
+                        if (isPaused) {
+                            viewModel.enviarComando("KEY_PLAY")
+                            isPaused = false
+                        }else{
+                            viewModel.enviarComando("KEY_PAUSE")
+                            isPaused = true
+                        }
                     },
                     modifier = Modifier
                         .background(Color.DarkGray, CircleShape)
                         .size(90.dp),
                 ) {
                     Icon(
-                        painter = painterResource(R.drawable.pause_24px),
+                        painter = if (isPaused) painterResource(R.drawable.play_arrow_24px) else painterResource(R.drawable.pause_24px),
                         tint = Color.White,
                         contentDescription = null,
                         modifier = Modifier

@@ -88,6 +88,22 @@ class SamsungWebSocketClient(private val context: Context) {
         webSocket?.send(command)
     }
 
+    fun launchApp(appId: String) {
+        val command = """
+        {
+          "method": "ms.channel.emit",
+          "params": {
+            "event": "ed.installedApp.get",
+            "to": "host",
+            "data": {}
+          }
+        }
+    """.trimIndent()
+        print(command)
+
+        webSocket?.send(command)
+    }
+
     fun disconnect() {
         webSocket?.close(1000, "Desconectado")
     }
