@@ -172,7 +172,9 @@ fun RemoteControlApp(
                     .weight(1f)
             ) {
                 IconButton(
-                    onClick = {},
+                    onClick = {
+                        viewModel.enviarComando("KEY_MENU")
+                    },
                     modifier = Modifier.Companion
                         .background(
                             Color.Companion.DarkGray,
@@ -264,7 +266,9 @@ fun RemoteControlApp(
                     .weight(1f)
             ) {
                 IconButton(
-                    onClick = {},
+                    onClick = {
+                        viewModel.enviarComando("KEY_CHUP")
+                    },
                     modifier = Modifier
                         .background(Color.DarkGray, ShapeDefaults.Medium)
                         .padding(16.dp)
@@ -290,7 +294,9 @@ fun RemoteControlApp(
                 )
 
                 IconButton(
-                    onClick = {},
+                    onClick = {
+                        viewModel.enviarComando("KEY_CHDOWN")
+                    },
                     modifier = Modifier
                         .background(Color.DarkGray, ShapeDefaults.Medium)
                         .padding(16.dp)
@@ -318,7 +324,9 @@ fun RemoteControlApp(
                 horizontalAlignment = Alignment.Start,
             ) {
                 IconButton(
-                    onClick = {},
+                    onClick = {
+                        viewModel.enviarComando("KEY_RETURN")
+                    },
                     modifier = Modifier
                         .background(Color.DarkGray, ShapeDefaults.Medium)
                         .width(96.dp)
@@ -341,7 +349,9 @@ fun RemoteControlApp(
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 IconButton(
-                    onClick = {},
+                    onClick = {
+                        viewModel.enviarComando("KEY_HOME")
+                    },
                     modifier = Modifier
                         .background(Color.DarkGray, ShapeDefaults.Medium)
                         .width(96.dp)
@@ -472,7 +482,9 @@ fun RemoteControlApp(
                     .padding(8.dp)
             ) {
                 IconButton(
-                    onClick = {},
+                    onClick = {
+                        viewModel.enviarComando("KEY_REWIND")
+                    },
                     modifier = Modifier
                         .background(Color.DarkGray, CircleShape)
                         .size(70.dp),
@@ -493,7 +505,9 @@ fun RemoteControlApp(
                     .padding(8.dp)
             ) {
                 IconButton(
-                    onClick = {},
+                    onClick = {
+                        viewModel.enviarComando("KEY_PLAY")
+                    },
                     modifier = Modifier
                         .background(Color.DarkGray, CircleShape)
                         .size(90.dp),
@@ -514,7 +528,9 @@ fun RemoteControlApp(
                     .padding(8.dp)
             ) {
                 IconButton(
-                    onClick = {},
+                    onClick = {
+                        viewModel.enviarComando("KEY_FF")
+                    },
                     modifier = Modifier
                         .background(Color.DarkGray, CircleShape)
                         .size(70.dp),
@@ -534,7 +550,9 @@ fun RemoteControlApp(
 }
 
 @Composable
-fun CircularDPad() {
+fun CircularDPad(
+    viewModel: RemoteControlViewModel = viewModel()
+) {
     Box(
         modifier = Modifier.Companion
             .size(200.dp)
@@ -544,7 +562,9 @@ fun CircularDPad() {
             modifier = Modifier.Companion
                 .align(Alignment.Companion.TopCenter)
                 .padding(top = 16.dp),
-            onClick = {}
+            onClick = {
+                viewModel.enviarComando("KEY_UP")
+            }
         ) {
             Text(
                 text = "▲",
@@ -557,7 +577,9 @@ fun CircularDPad() {
             modifier = Modifier.Companion
                 .align(Alignment.Companion.BottomCenter)
                 .padding(bottom = 16.dp),
-            onClick = {}
+            onClick = {
+                viewModel.enviarComando("KEY_DOWN")
+            }
         ) {
             Text(
                 text = "▼",
@@ -571,7 +593,9 @@ fun CircularDPad() {
             modifier = Modifier.Companion
                 .align(Alignment.Companion.CenterStart)
                 .padding(start = 16.dp),
-            onClick = {}
+            onClick = {
+                viewModel.enviarComando("KEY_LEFT")
+            }
         ) {
             Text(
                 text = "◀",
@@ -584,7 +608,9 @@ fun CircularDPad() {
             modifier = Modifier.Companion
                 .align(Alignment.Companion.CenterEnd)
                 .padding(end = 16.dp),
-            onClick = {}
+            onClick = {
+                viewModel.enviarComando("KEY_RIGHT")
+            }
         ) {
             Text(
                 text = "▶",
@@ -594,7 +620,9 @@ fun CircularDPad() {
 
         IconButton(
             modifier = Modifier.Companion.align(Alignment.Companion.Center),
-            onClick = {}
+            onClick = {
+                viewModel.enviarComando("KEY_ENTER")
+            }
         ) {
             Text(
                 text = "OK",
