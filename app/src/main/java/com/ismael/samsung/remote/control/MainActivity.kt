@@ -246,6 +246,7 @@ fun RemoteControl(
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.Start,
                 modifier = Modifier
+                    .padding(16.dp)
             ) {
                 CircularDPad()
             }
@@ -268,6 +269,254 @@ fun RemoteControl(
                         contentDescription = null,
                         modifier = Modifier
                             .background(Color.DarkGray, ShapeDefaults.Medium)
+                            .size(32.dp),
+                    )
+                }
+
+                Text(
+                    text = "CH",
+                    color = Color.White,
+                    fontSize = 24.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier
+                        .padding(8.dp, 50.dp, 8.dp, 32.dp)
+                )
+
+                IconButton(
+                    onClick = {},
+                    modifier = Modifier
+                        .background(Color.DarkGray, ShapeDefaults.Medium)
+                        .padding(16.dp)
+                        .size(32.dp),
+                ) {
+                    Icon(
+                        painter = painterResource(R.drawable.remove_24px),
+                        tint = Color.White,
+                        contentDescription = null,
+                        modifier = Modifier
+                            .background(Color.DarkGray, ShapeDefaults.Medium)
+                            .size(32.dp),
+                    )
+                }
+            }
+        }
+
+        Row(
+            modifier = Modifier
+                .padding(16.dp)
+        ) {
+            Column(
+                modifier = Modifier.weight(1f),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.Start,
+            ) {
+                IconButton(
+                    onClick = {},
+                    modifier = Modifier
+                        .background(Color.DarkGray, ShapeDefaults.Medium)
+                        .width(96.dp)
+                        .padding(16.dp)
+                        .size(32.dp),
+                ) {
+                    Icon(
+                        painter = painterResource(R.drawable.reply_24px),
+                        tint = Color.White,
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(32.dp),
+                    )
+                }
+            }
+
+            Column(
+                modifier = Modifier.weight(1f),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                IconButton(
+                    onClick = {},
+                    modifier = Modifier
+                        .background(Color.DarkGray, ShapeDefaults.Medium)
+                        .width(96.dp)
+                        .padding(16.dp)
+                        .size(32.dp),
+                ) {
+                    Icon(
+                        painter = painterResource(R.drawable.home_24px),
+                        tint = Color.White,
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(32.dp),
+                    )
+                }
+            }
+
+            Column(
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.End,
+                modifier = Modifier
+                    .weight(1f)
+            ) {
+                IconButton(
+                    onClick = {},
+                    modifier = Modifier
+                        .background(Color.DarkGray, ShapeDefaults.Medium)
+                        .width(96.dp)
+                        .padding(16.dp)
+                        .size(32.dp),
+                ) {
+                    Icon(
+                        painter = painterResource(R.drawable.logout_24px),
+                        tint = Color.White,
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(32.dp),
+                    )
+                }
+            }
+        }
+
+        Row(
+            modifier = Modifier
+                .padding(16.dp)
+        ) {
+            Column(
+                modifier = Modifier.weight(1f),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.Start,
+            ) {
+                IconButton(
+                    onClick = {},
+                    modifier = Modifier
+                        .background(Color.DarkGray, ShapeDefaults.Medium)
+                        .width(96.dp)
+                        .padding(16.dp)
+                        .size(32.dp),
+                ) {
+                    Icon(
+                        painter = painterResource(R.drawable.netflix),
+                        tint = Color.White,
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(70.dp),
+                    )
+                }
+            }
+
+            Column(
+                modifier = Modifier.weight(1f),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                IconButton(
+                    onClick = {},
+                    modifier = Modifier
+                        .background(Color.DarkGray, ShapeDefaults.Medium)
+                        .width(96.dp)
+                        .padding(16.dp)
+                        .size(32.dp),
+                ) {
+                    Icon(
+                        painter = painterResource(R.drawable.prime),
+                        tint = Color.White,
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(40.dp),
+                    )
+                }
+            }
+
+            Column(
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.End,
+                modifier = Modifier
+                    .weight(1f)
+            ) {
+                IconButton(
+                    onClick = {},
+                    modifier = Modifier
+                        .background(Color.DarkGray, ShapeDefaults.Medium)
+                        .width(96.dp)
+                        .padding(16.dp)
+                        .size(32.dp),
+                ) {
+                    Icon(
+                        painter = painterResource(R.drawable.globo),
+                        tint = Color.White,
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(150.dp),
+                    )
+                }
+            }
+        }
+
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center,
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp)
+        ) {
+            Column(
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.Start,
+                modifier = Modifier
+                    .padding(8.dp)
+            ) {
+                IconButton(
+                    onClick = {},
+                    modifier = Modifier
+                        .background(Color.DarkGray, CircleShape)
+                        .size(70.dp),
+                ) {
+                    Icon(
+                        painter = painterResource(R.drawable.skip_previous_24px),
+                        tint = Color.White,
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(32.dp),
+                    )
+                }
+            }
+            Column(
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier
+                    .padding(8.dp)
+            ) {
+                IconButton(
+                    onClick = {},
+                    modifier = Modifier
+                        .background(Color.DarkGray, CircleShape)
+                        .size(90.dp),
+                ) {
+                    Icon(
+                        painter = painterResource(R.drawable.pause_24px),
+                        tint = Color.White,
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(32.dp),
+                    )
+                }
+            }
+            Column(
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.End,
+                modifier = Modifier
+                    .padding(8.dp)
+            ) {
+                IconButton(
+                    onClick = {},
+                    modifier = Modifier
+                        .background(Color.DarkGray, CircleShape)
+                        .size(70.dp),
+                ) {
+                    Icon(
+                        painter = painterResource(R.drawable.skip_next_24px),
+                        tint = Color.White,
+                        contentDescription = null,
+                        modifier = Modifier
                             .size(32.dp),
                     )
                 }
@@ -356,7 +605,7 @@ fun CircularDPad() {
 fun GreetingPreview() {
     SamsungRemoteControlTheme {
 
-     //  CircularDPad()
+        //  CircularDPad()
 
         RemoteControl(
 
