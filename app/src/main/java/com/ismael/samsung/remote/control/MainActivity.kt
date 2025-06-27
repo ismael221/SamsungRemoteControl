@@ -30,6 +30,7 @@ import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSiz
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.paint
@@ -41,20 +42,27 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.ismael.samsung.remote.control.network.discoverTvs
 import com.ismael.samsung.remote.control.ui.screen.RemoteControlApp
 import com.ismael.samsung.remote.control.ui.theme.SamsungRemoteControlTheme
+import java.net.InetAddress
 
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        val _tvs = mutableStateListOf<InetAddress>()
+        val tvs: List<InetAddress> = _tvs
         setContent {
             SamsungRemoteControlTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     val windowSize = calculateWindowSizeClass(this)
+                    discoverTvs { encontrados ->
+                        _tvs.addAll(encontrados)
+                    }
                     RemoteControlApp(
-                        //  windowSize = windowSize.widthSizeClass,
+                        //  windowSize = windowSize.widthSizeClass,s
                         modifier = Modifier.padding(innerPadding)
                     )
                 }

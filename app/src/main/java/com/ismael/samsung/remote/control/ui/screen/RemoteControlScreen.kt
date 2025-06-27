@@ -1,5 +1,9 @@
 package com.ismael.samsung.remote.control.ui.screen
 
+import android.Manifest
+import android.widget.Toast
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -23,6 +27,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -30,12 +35,27 @@ import androidx.compose.ui.unit.sp
 import com.ismael.samsung.remote.control.R
 import com.ismael.samsung.remote.control.viewmodel.RemoteControlViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.ismael.samsung.remote.control.viewmodel.TvDiscoveryViewModel
 
 @Composable
 fun RemoteControlApp(
     modifier: Modifier = Modifier
 ) {
     val viewModel: RemoteControlViewModel = viewModel()
+    val tvViewModel: TvDiscoveryViewModel = viewModel()
+
+    val context = LocalContext.current
+
+    val launcher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.RequestPermission(),
+        onResult = { granted ->
+            if (granted) {
+                tvViewModel.buscarTvs()
+            } else {
+                Toast.makeText(context, "Permissão necessária", Toast.LENGTH_SHORT).show()
+            }
+        }
+    )
     var ipTv by remember { mutableStateOf("192.168.100.14") }
 
     viewModel.conectarComTv(ipTv)
@@ -81,7 +101,9 @@ fun RemoteControlApp(
             )
 
             IconButton(
-                onClick = {},
+                onClick = {
+                    launcher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+                },
                 modifier = Modifier
                     .background(
                         Color.Companion.DarkGray,
